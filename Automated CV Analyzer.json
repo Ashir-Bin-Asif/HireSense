@@ -1,0 +1,410 @@
+{
+  "name": "Automated CV Analyzer",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "pdf",
+        "binaryPropertyName": "Upload_your_Resume_",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1.1,
+      "position": [
+        208,
+        16
+      ],
+      "id": "5ba9d4de-4bde-4762-9a8a-70198961db47",
+      "name": "Extract from File"
+    },
+    {
+      "parameters": {
+        "formTitle": "HireSense",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Upload your Resume:",
+              "fieldType": "file",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Targeted Job Loaction:",
+              "placeholder": "(Optional)"
+            },
+            {
+              "fieldLabel": "Preferred Role:",
+              "placeholder": "(Optional)"
+            }
+          ]
+        },
+        "responseMode": "lastNode",
+        "options": {
+          "appendAttribution": false,
+          "customCss": "```css\n/* Google Fonts */\n@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,700&display=swap');\n\n/* -----------------------------\n   Base\n----------------------------- */\n\nbody,\n.n8n-form-page {\n    font-family: 'Montserrat', sans-serif !important;\n    background: #e5ebfb !important; /* Updated background color */\n    color: #0f172a !important;\n}\n\n/* -----------------------------\n   Main Wrapper\n----------------------------- */\n\n.n8n-form-page > div {\n    max-width: 1100px !important;\n    margin: auto !important;\n}\n\n/* Remove giant default card */\n.ndv-form-card,\n.form-card {\n    background: transparent !important;\n    border: none !important;\n    box-shadow: none !important;\n    padding: 0 !important;\n}\n\n/* -----------------------------\n   HEADER\n----------------------------- */\n\n.form-header {\n    background: linear-gradient(135deg, #0f172a, #1e3a8a) !important;\n    color: white !important;\n\n    max-width: 1100px !important;\n    width: calc(100% - 40px) !important;\n\n    margin: 40px auto 50px auto !important;\n\n    padding: 48px 40px !important;\n\n    border-radius: 22px !important;\n    border-bottom: 4px solid #2563eb !important;\n\n    text-align: center !important;\n\n    box-shadow:\n        0 12px 30px rgba(15,23,42,.08),\n        0 2px 8px rgba(15,23,42,.04) !important;\n}\n\n/* Title */\n\n.form-header h1 {\n    font-size: 0 !important;\n    margin: 0 !important;\n}\n\n.form-header h1::before {\n    content: \"HireSense\" !important;\n\n    font-family: 'Playfair Display', serif !important;\n    font-style: italic !important;\n    font-weight: 700 !important;\n\n    font-size: 58px !important;\n    color: white !important;\n\n    display: block !important;\n}\n\n/* Subtitle */\n\n.form-header p {\n    font-size: 0 !important;\n    margin-top: 12px !important;\n}\n\n.form-header p::before {\n    content: \"A platform that evaluates resume and hunts relevant jobs.\";\n\n    color: #cbd5e1 !important;\n    font-size: 14px !important;\n    font-style: italic !important;\n    line-height: 1.7 !important;\n\n    display: block !important;\n}\n\n/* -----------------------------\n   FORM CARD\n----------------------------- */\n\nform,\n.form-body {\n    background: white !important;\n\n    max-width: 430px !important;\n    width: 100% !important;\n\n    margin: 0 auto 50px auto !important;\n\n    padding: 24px !important;\n\n    border: 1px solid #e2e8f0 !important;\n    border-radius: 20px !important;\n\n    box-shadow:\n        0 10px 30px rgba(15,23,42,.06),\n        0 2px 6px rgba(15,23,42,.03) !important;\n}\n\n/* -----------------------------\n   Field Containers\n----------------------------- */\n\n.form-group,\n.input-wrapper,\ndiv[class*=\"field\"],\ndiv[class*=\"itemContainer\"] {\n\n    margin-bottom: 12px !important;\n}\n\n/* -----------------------------\n   Labels\n----------------------------- */\n\nlabel,\n.form-label {\n    font-family: \"Calibri\", Calibri, serif !important;\n    font-size: 16px !important;\n    font-weight: 700 !important;\n    color: #0f172a !important;\n    letter-spacing: 0.3px !important;\n    text-transform: none !important;\n}\n\n/* -----------------------------\n   Inputs\n----------------------------- */\n\ninput,\ntextarea,\nselect {\n\n    width: 100% !important;\n\n    padding: 10px 12px !important;\n\n    border: 1px solid #cbd5e1 !important;\n    border-radius: 10px !important;\n\n    background: white !important;\n\n    font-size: 13px !important;\n    color: #0f172a !important;\n\n    box-sizing: border-box !important;\n}\n\ninput:focus,\ntextarea:focus,\nselect:focus {\n\n    border-color: #2563eb !important;\n\n    outline: none !important;\n\n    box-shadow:\n        0 0 0 4px rgba(37,99,235,.12) !important;\n}\n\n/* -----------------------------\n   Upload Area\n----------------------------- */\n\n.file-upload,\ndiv[class*=\"dropzone\"] {\n\n    border: 2px dashed #cbd5e1 !important;\n\n    border-radius: 12px !important;\n\n    padding: 18px !important;\n\n    background: white !important;\n\n    text-align: center !important;\n}\n\n/* -----------------------------\n   Submit Button\n----------------------------- */\n\nbutton[type=\"submit\"] {\n\n    width: 100% !important;\n\n    background: #1e3a8a !important;\n    color: white !important;\n\n    border: none !important;\n    border-radius: 12px !important;\n\n    padding: 13px 18px !important;\n\n    font-size: 13px !important;\n    font-weight: 600 !important;\n\n    cursor: pointer !important;\n\n    box-shadow:\n        0 6px 18px rgba(30,58,138,.15) !important;\n}\n\nbutton[type=\"submit\"]:hover {\n    background: #0f172a !important;\n}\n\n\n```\n"
+        }
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.6,
+      "position": [
+        16,
+        16
+      ],
+      "id": "9b1bb317-36ae-4c50-98f5-ed31a515fdd7",
+      "name": "On form submission",
+      "webhookId": "098ed24d-add2-483a-989f-7e2ecf6d2cb2"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are an expert job ranking and opportuniy matching engine.\n\nYour only task is to analyze a structured candidate profile and a list of job results, then return the best matching jobs.\n\n────────────────────────────\nCORE RULE\n────────────────────────────\n\n- The candidate profile is already fully structured and complete.\n- Do NOT re-analyze or re-extract resume data.\n- Do NOT ask for or use additional preferences.\n- Do NOT hallucinate jobs.\n- Do NOT modify job data.\n\n────────────────────────────\nJOB RANKING TASK\n────────────────────────────\n\nEvaluate each job based on:\n\n1. Skill overlap with candidate profile\n2. Experience compatibility\n3. Role relevance\n4. Seniority alignment\n5. Overall hiring likelihood\n6. Education requirement match\n\nPrioritize jobs that maximize chances of selection.\n\nIf a job is partially relevant, still include it with lower rank.\n\n────────────────────────────\nSELECTION RULES\n────────────────────────────\n\n- Return minimum 3 and maximum 10 jobs.\n- If job results are provided, NEVER return an empty list.\n- Always select the best available matches from input.\n- Sort jobs from strongest match to weakest match.\n\n────────────────────────────\nSTRICT DATA RULES\n────────────────────────────\n\n- Do NOT change company names.\n- Do NOT change job titles.\n- Do NOT change apply URLs.\n- Do NOT invent missing information.\n- Use only data provided in JOB RESULTS.\n- Reason should be in one line\n- Use you or your etc instead of candidate\n────────────────────────────\nOUTPUT RULES\n────────────────────────────\n\nReturn ONLY raw JSON.\n\nNo markdown.\nNo explanations.\nNo extra text.\n\n────────────────────────────\nOUTPUT FORMAT\n────────────────────────────\n\n{\n  \"recommended_jobs\": [\n    {\n      \"rank\": 1,\n      \"company\": \"\",\n      \"job_title\": \"\",\n      \"location\": \"\",\n      \"matching_factors\": [\n        \"\",\n        \"\",\n        \"\"\n      ],\n      \"reason\": \"\",\n      \"job_apply_link\": \"\"\n    }\n  ]\n}\n\n────────────────────────────\nINPUT DATA\n────────────────────────────\n\nCANDIDATE PROFILE:\n{{ typeof $('Person Details Extractor').item.json.output === 'object' ? JSON.stringify($('Person Details Extractor').item.json.output) : $('Person Details Extractor').item.json.output }}\n\nJOB RESULTS:\n{{ JSON.stringify($json.data) }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        1104,
+        16
+      ],
+      "id": "a8d0b54d-5ea5-48fe-9ca9-22992e1325ea",
+      "name": "Jobs Analyzer"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are an expert ATS (Applicant Tracking System) evaluator and career optimization engine.\n\nYour task is to analyze a structured candidate profile and produce a high-quality evaluation of resume strength and improvement opportunities.\n\n────────────────────────────\nIMPORTANT RULES\n────────────────────────────\n\n- The input is already a structured candidate profile.\n- Do NOT re-extract or re-analyze raw resume text.\n- Do NOT suggest jobs.\n- Do NOT hallucinate skills, experience, or certifications.\n- Use only the provided data.\n- Be strict, realistic, and unbiased.\n\n────────────────────────────\nATS SCORING LOGIC\n────────────────────────────\n\nCalculate a single ATS score (0–100) based on:\n\n1. Skill depth and relevance\n2. Technical clarity and structure\n3. Project quality and relevance\n4. Experience strength (if present)\n5. Resume completeness\n6. Market relevance of skills\n\nScoring guidance:\n- 80–100 → Strong, job-ready profile\n- 60–79 → Good but needs improvement\n- 40–59 → Average, missing key signals\n- Below 40 → Weak or early-stage profile\n\nBe conservative. Do NOT inflate scores.\n\n────────────────────────────\nIMPROVEMENT REQUIREMENTS\n────────────────────────────\n\nProvide exactly 3 highly actionable improvements.\n\nEach suggestion must:\n\n- Be specific (not generic advice)\n- Directly improve hiring probability\n- Be technically or structurally meaningful\n\nExamples of GOOD suggestions:\n- \"Add measurable outcomes to project descriptions (e.g., performance improvements, user growth).\"\n- \"Include GitHub links with documented repositories for each major project.\"\n- \"Highlight backend system design concepts such as API architecture or database optimization.\"\n- \"Learn Docker as it is important in industry level software development\"\nAvoid generic advice like:\n- \"Improve your resume\"\n- \"Add more skills\"\n\n────────────────────────────\nSTRICT OUTPUT RULES\n────────────────────────────\n\n- Return ONLY raw JSON.\n- No markdown.\n- No explanations.\n- No extra text.\n- Use null if data is missing.\n\n────────────────────────────\nOUTPUT FORMAT\n────────────────────────────\n\n{\n  \"cv_analysis\": {\n    \"ats_score\": 0,\n    \"strengths\": [\n      \"\",\n      \"\",\n      \"\"\n    ],\n    \"suggested_improvements\": [\n      \"\",\n      \"\",\n      \"\"\n    ]\n  }\n}\n\n────────────────────────────\nINPUT DATA\n────────────────────────────\n\nCANDIDATE PROFILE:\n{{ $('Person Details Extractor').item.json.output }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        1392,
+        272
+      ],
+      "id": "673c58d0-eb80-4e14-a124-f0c6f2990e55",
+      "name": "ATS Evaluater"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are an expert ATS (Applicant Tracking System) resume analyzer and career intelligence engine. Your absolute mandate is to process raw resume text and extract structural career data with 100% precision. Do not assume, do not hallucinate, and do not add conversational text outside of the JSON structure.\n\n### CRITICAL EXTRACTION RULES:\n1. **Strict Truthfulness**: Extract only facts explicitly stated in the document. If a field is completely missing, return `null` or an empty array `[]` as indicated in the template. Never invent certifications, metrics, or positions.\n2. **Deep Single-Role Inference**: Analyze the user's explicit chat inputs alongside their CV data. Intelligently calculate exactly **one (1) single best-fitted standard market job title** they qualify for. Place this single title as the sole string element inside the `preferred_roles` array (e.g., `[\"Software Engineer Intern\"]`).\n3. **Strict Chat-Only Location Targeting**: \n   - Analyze the **USER CHAT COMMAND** to see if they specified a specific city, country, or \"remote\" preference for their job search. If they did, extract that destination exactly as the `target_job_location`.\n   - If the user did NOT explicitly mention a location or country preference in their chat message, you must set `target_job_location` to `null`. Do not copy the home address from the resume into this field.\n4. **Technology Normalization**: Standardize all tech variations to their standard industry names (e.g., \"js\" -> \"JavaScript\", \"cpp\" -> \"C++\").\n5. **Seniority Inference**: Determine seniority strictly from evidence. For current undergraduate university students or individuals with no corporate track record, default to \"Entry-Level / Intern\".\n\n### STRICT OUTPUT FORMAT:\nYou must output ONLY a valid, raw JSON object. Do NOT wrap the JSON in markdown code fences.\n\n### JSON SCHEMA TEMPLATE TO FILL:\n{\n  \"full_name\": null,\n  \"email\": null,\n  \"location\": null,\n  \"target_job_location\": null,\n  \"years_of_experience\": null,\n  \"education\": null,\n  \"certifications\": [],\n  \"technical_skills\": [],\n  \"frameworks\": [],\n  \"programming_languages\": [],\n  \"tools\": [],\n  \"databases\": [],\n  \"preferred_roles\": [],\n  \"preferred_roles_analysis\": null,\n  \"seniority_level\": null,\n  \"notable_projects\": []\n}\n\n---\n### INPUT DATA TO PROCESS:\n[RESUME TEXT START]\n{{ $('Extract from File').item.json.text }}\n[RESUME TEXT END]\n[USER FORM SELECTIONS]\nTarget Job Location Preference: {{ $('On form submission').item.json['What is your target location?'] }}\nPreferred Target Role: {{ $('On form submission').item.json['What role will you prefer?'] }}\n",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        400,
+        16
+      ],
+      "id": "7800700b-8b6e-4634-8809-cb0b465254be",
+      "name": "Person Details Extractor"
+    },
+    {
+      "parameters": {
+        "url": "https://jsearch.p.rapidapi.com/search",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "query",
+              "value": "={{ $json.preferred_roles[0] }} {{ $json.target_job_location ? 'in ' + $json.target_job_location : '' }}"
+            },
+            {
+              "name": "num_pages",
+              "value": "1"
+            },
+            {
+              "name": "date_posted",
+              "value": "week"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "x-rapidapi-key",
+              "value": "a28d09acd2msh6fcfc3ed0662187p184909jsnbfe8ec78c3ac"
+            },
+            {
+              "name": "x-rapidapi-host",
+              "value": "jsearch.p.rapidapi.com"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        912,
+        16
+      ],
+      "id": "5238bcea-0555-420c-8fb7-dd58810b108b",
+      "name": "Job Searcher"
+    },
+    {
+      "parameters": {
+        "jsCode": "return JSON.parse($json.output);"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1696,
+        272
+      ],
+      "id": "fc1736f6-7ca2-4ec8-a189-c43669bc989d",
+      "name": "json formatter1"
+    },
+    {
+      "parameters": {
+        "jsCode": "const cleanText = $json.output.replace(/```json|```/gi, '').trim();\nreturn JSON.parse(cleanText);"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1424,
+        16
+      ],
+      "id": "417eea4f-7ace-4091-a043-219d45114d89",
+      "name": "json formatter2"
+    },
+    {
+      "parameters": {
+        "jsCode": "return JSON.parse($json.output);"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        720,
+        16
+      ],
+      "id": "be628647-b1f4-42ba-abc2-256ac0774a94",
+      "name": "json formatter"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-3.1-flash-lite",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        400,
+        192
+      ],
+      "id": "96f1cbf0-a3d5-4288-9ac0-6aba79d2aaf8",
+      "name": "Google Gemini Model1",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "lpT3b9THAXkJJc1I",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-3.1-flash-lite",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        1104,
+        192
+      ],
+      "id": "22dce4be-99e2-48b9-976b-7d1172f0ae3c",
+      "name": "Google Gemini Model2",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "lpT3b9THAXkJJc1I",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-3.1-flash-lite",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        1392,
+        448
+      ],
+      "id": "7a53cf84-54d1-4ce5-b98e-b86669d98114",
+      "name": "Google Gemini Model3",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "lpT3b9THAXkJJc1I",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "completion",
+        "respondWith": "showText",
+        "responseText": "=<link href=\"https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap\" rel=\"stylesheet\">\n<div style=\"font-family: Arial, 'Montserrat', 'Segoe UI', Roboto, Helvetica, sans-serif; color: #0f172a; line-height: 1.6; max-width: 800px; margin: 0 auto; background-color: #e5ebfb; padding: 24px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);\">\n    \n    <div style=\"background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: #ffffff; padding: 44px 24px; border-radius: 12px; margin-bottom: 24px; border-bottom: 4px solid #2563eb; box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);\">\n        <h1 style=\"font-family: 'Playfair Display', serif; margin: 0 0 10px 0; font-size: 40px; font-weight: 700; color: #ffffff; line-height: 1.1;\">Report by HireSense</h1>\n        <p style=\"margin: 0; font-size: 15px; color: #c6dbef; font-weight: 400; letter-spacing: 0.5px;\">Profile evaluated against real-time market opportunities and enterprise ATS benchmarks</p>\n    </div>\n    <table style=\"width: 100%; border-collapse: separate; border-spacing: 16px 0; margin-left: -16px; margin-right: -16px; margin-bottom: 8px;\">\n        <tr>\n            <td style=\"width: 35%; vertical-align: top;\">\n                <div style=\"background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 12px; padding: 24px; text-align: center; height: 100%; box-sizing: border-box;\">\n                    <div style=\"font-size: 14px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; color: #475569; margin-bottom: 12px;\">ATS Score</div>\n                    <div style=\"font-size: 52px; font-weight: 800; color: #1e3a8a; line-height: 1;\">\n                        {{ $(\"json formatter1\").first().json.cv_analysis.ats_score }}<span style=\"font-size: 18px; color: #475569; font-weight: 500;\">/100</span>\n                    </div>\n                    <p style=\"font-size: 11px; color: #1e3a8a; margin-top: 20px; line-height: 1.5; text-align: left; background: #f0f6ff; padding: 10px; border-radius: 6px; border-left: 3px solid #1e3a8a; font-weight: 500;\">\n                        Reflects structural keyword optimization maps and pipeline readiness metrics.\n                    </p>\n                </div>\n            </td>\n            \n            <td style=\"width: 65%; vertical-align: top;\">\n                <div style=\"background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 12px; padding: 24px; height: 100%; box-sizing: border-box;\">\n                    <h2 style=\"font-size: 17px; font-weight: 700; color: #0f172a; margin-top: 0; margin-bottom: 16px; padding-left: 10px; border-left: 4px solid #1e3a8a; text-transform: uppercase; letter-spacing: 1.2px;\">Document Strengths</h2>\n                    <ul style=\"margin: 0; padding-left: 20px; font-size: 13.5px; color: #334155; font-weight: 500; line-height: 1.6;\">\n                        <li style=\"margin-bottom: 8px;\">{{ $(\"json formatter1\").first().json.cv_analysis.strengths[0] }}</li>\n                        <li style=\"margin-bottom: 8px;\">{{ $(\"json formatter1\").first().json.cv_analysis.strengths[1] }}</li>\n                        <li style=\"margin-bottom: 8px;\">{{ $(\"json formatter1\").first().json.cv_analysis.strengths[2] }}</li>\n                    </ul>\n                </div>\n            </td>\n        </tr>\n    </table>\n    <div style=\"background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 12px; padding: 24px; margin-bottom: 24px;\">\n        <h2 style=\"font-size: 17px; font-weight: 700; color: #0f172a; margin-top: 0; margin-bottom: 16px; padding-left: 10px; border-left: 4px solid #1e3a8a; text-transform: uppercase; letter-spacing: 1.2px;\">Significant Enhancements Required</h2>\n        <ol style=\"margin: 0; padding-left: 20px; font-size: 13.5px; color: #334155; line-height: 1.6; font-weight: 500;\">\n            <li style=\"margin-bottom: 12px; padding-left: 4px;\">{{ $(\"json formatter1\").first().json.cv_analysis.suggested_improvements[0] }}</li>\n            <li style=\"margin-bottom: 12px; padding-left: 4px;\">{{ $(\"json formatter1\").first().json.cv_analysis.suggested_improvements[1] }}</li>\n            <li style=\"margin-bottom: 4px; padding-left: 4px;\">{{ $(\"json formatter1\").first().json.cv_analysis.suggested_improvements[2] }}</li>\n        </ol>\n    </div>\n    <div style=\"background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 12px; padding: 24px; margin-bottom: 12px;\">\n        <h2 style=\"font-size: 17px; font-weight: 700; color: #0f172a; margin-top: 0; margin-bottom: 4px; padding-left: 10px; border-left: 4px solid #1e3a8a; text-transform: uppercase; letter-spacing: 1.2px;\">Tailored Job Matches</h2>\n        <p style=\"margin: 0 0 20px 0; font-size: 11px; color: #475569; padding-left: 14px;\">Ranked dynamically by index compatibility maps and core engineering profiles.</p>\n        \n        {{ $(\"json formatter2\").first().json.recommended_jobs.slice(0, 10).map((job, index, array) => `\n        <div style=\"border-bottom: ${index === array.length - 1 ? 'none' : '1px solid #cbd5e1'}; padding-bottom: ${index === array.length - 1 ? '0' : '20px'}; margin-bottom: ${index === array.length - 1 ? '0' : '20px'};\">\n            <h3 style=\"font-size: 14px; font-weight: 700; color: #1e3a8a; margin: 0 0 8px 0;\">${index + 1}. ${job.job_title || 'Not Specified'}</h3>\n            \n            <div style=\"font-size: 12px; color: #334155; line-height: 1.5; font-weight: 500; background-color: #f8fafc; border: 1px solid #cbd5e1; padding: 14px; border-radius: 8px;\">\n                <div style=\"margin-bottom: 4px;\"><strong style=\"color: #0f172a;\">Company:</strong> ${job.company || 'Enterprise Partner'}</div>\n                <div style=\"margin-bottom: 4px;\"><strong style=\"color: #0f172a;\">Location:</strong> ${job.location || 'Remote'}</div>\n                <div style=\"margin-bottom: 14px;\"><strong style=\"color: #0f172a;\">Reason:</strong> ${job.reason || 'Profile tracks matching technical architectural prerequisites.'}</div>\n                \n                <a href=\"${job.job_apply_link || '#'}\" target=\"_blank\" style=\"display: inline-block; background-color: #2563eb; color: #ffffff; text-decoration: none; padding: 8px 18px; border-radius: 6px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;\">Apply for this Role &rarr;</a>\n            </div>\n        </div>\n        `).join('') }}\n        \n    </div>\n</div>\n<div style=\"margin-top:40px; text-align:center; padding-top:24px; border-top:1px solid #cbd5e1;\">\n    <div style=\"font-size:12px; letter-spacing:2px; color:#64748b; text-transform:uppercase; font-family: Arial, sans-serif;\">\n        Powered by\n    </div>\n    <div style=\"font-family:'Playfair Display', serif; font-size:32px; font-style:italic; color:#1e3a8a; margin-top:8px;\">\n        HireSense\n    </div>\n    <div style=\"margin-top:14px; color:#475569; font-size:13px; max-width:500px; margin-left:auto; margin-right:auto; font-family: Arial, sans-serif;\">\n        Empowering professionals with intelligent analysis.\n    </div>\n</div>"
+      },
+      "type": "n8n-nodes-base.form",
+      "typeVersion": 2.5,
+      "position": [
+        1888,
+        272
+      ],
+      "id": "d9bf9d00-8d01-4853-9976-9223bf43f86a",
+      "name": "Form Final Report",
+      "webhookId": "04ab2ccf-6427-4d95-89b8-85d02c9035ad"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "Person Details Extractor",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Person Details Extractor": {
+      "main": [
+        [
+          {
+            "node": "json formatter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Job Searcher": {
+      "main": [
+        [
+          {
+            "node": "Jobs Analyzer",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Jobs Analyzer": {
+      "main": [
+        [
+          {
+            "node": "json formatter2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ATS Evaluater": {
+      "main": [
+        [
+          {
+            "node": "json formatter1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "json formatter1": {
+      "main": [
+        [
+          {
+            "node": "Form Final Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "json formatter2": {
+      "main": [
+        [
+          {
+            "node": "ATS Evaluater",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "json formatter": {
+      "main": [
+        [
+          {
+            "node": "Job Searcher",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Person Details Extractor",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Jobs Analyzer",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "ATS Evaluater",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "7585f210-1f37-4f11-92c2-48b90a6a0313",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "558d88703fb65b2d0e44613bc35916258b0f0bf983c5d4730c00c424b77ca36a"
+  },
+  "nodeGroups": [],
+  "id": "op5g5Gij7dlFIc0b",
+  "tags": []
+}

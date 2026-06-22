@@ -1,0 +1,77 @@
+﻿<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+<div style="background-color: #e5ebfb; width: 100%; min-height: 100vh; padding: 40px 0; margin: 0; box-sizing: border-box;">
+    <div style="font-family: Arial, 'Montserrat', 'Segoe UI', Roboto, Helvetica, sans-serif; color: #0f172a; line-height: 1.6; max-width: 800px; margin: 0 auto; background-color: #e5ebfb; padding: 24px; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+
+        <div style="background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: #ffffff; padding: 44px 24px; border-radius: 12px; margin-bottom: 24px; border-bottom: 4px solid #2563eb; box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);">
+            <h1 style="font-family: 'Playfair Display', serif; margin: 0 0 10px 0; font-size: 40px; font-weight: 700; color: #ffffff; line-height: 1.1;">Report by HireSense</h1>
+            <p style="margin: 0; font-size: 15px; color: #c6dbef; font-weight: 400; letter-spacing: 0.5px;">Profile evaluated against real-time market opportunities and enterprise ATS benchmarks</p>
+        </div>
+
+        <table style="width: 100%; border-collapse: separate; border-spacing: 16px 0; margin-left: -16px; margin-right: -16px; margin-bottom: 8px;">
+            <tr>
+                <td style="width: 35%; vertical-align: top;">
+                    <div style="background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 12px; padding: 24px; text-align: center; height: 100%; box-sizing: border-box;">
+                        <div style="font-size: 14px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; color: #475569; margin-bottom: 12px;">ATS Score</div>
+                        <div style="font-size: 52px; font-weight: 800; color: #1e3a8a; line-height: 1;">
+                            {{ $("json formatter1").first().json.cv_analysis.ats_score }}<span style="font-size: 18px; color: #475569; font-weight: 500;">/100</span>
+                        </div>
+                        <p style="font-size: 11px; color: #1e3a8a; margin-top: 20px; line-height: 1.5; text-align: left; background: #f0f6ff; padding: 10px; border-radius: 6px; border-left: 3px solid #1e3a8a; font-weight: 500;">
+                            Reflects structural keyword optimization maps and pipeline readiness metrics.
+                        </p>
+                    </div>
+                </td>
+                <td style="width: 65%; vertical-align: top;">
+                    <div style="background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 12px; padding: 24px; height: 100%; box-sizing: border-box;">
+                        <h2 style="font-size: 17px; font-weight: 700; color: #0f172a; margin-top: 0; margin-bottom: 16px; padding-left: 10px; border-left: 4px solid #1e3a8a; text-transform: uppercase; letter-spacing: 1.2px;">Document Strengths</h2>
+                        <ul style="margin: 0; padding-left: 20px; font-size: 13.5px; color: #334155; font-weight: 500; line-height: 1.6;">
+                            <li style="margin-bottom: 8px;">{{ $("json formatter1").first().json.cv_analysis.strengths[0] }}</li>
+                            <li style="margin-bottom: 8px;">{{ $("json formatter1").first().json.cv_analysis.strengths[1] }}</li>
+                            <li style="margin-bottom: 8px;">{{ $("json formatter1").first().json.cv_analysis.strengths[2] }}</li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <div style="background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 12px; padding: 24px; margin-bottom: 24px;">
+            <h2 style="font-size: 17px; font-weight: 700; color: #0f172a; margin-top: 0; margin-bottom: 16px; padding-left: 10px; border-left: 4px solid #1e3a8a; text-transform: uppercase; letter-spacing: 1.2px;">Significant Enhancements Required</h2>
+            <ol style="margin: 0; padding-left: 20px; font-size: 13.5px; color: #334155; line-height: 1.6; font-weight: 500;">
+                <li style="margin-bottom: 12px; padding-left: 4px;">{{ $("json formatter1").first().json.cv_analysis.suggested_improvements[0] }}</li>
+                <li style="margin-bottom: 12px; padding-left: 4px;">{{ $("json formatter1").first().json.cv_analysis.suggested_improvements[1] }}</li>
+                <li style="margin-bottom: 4px; padding-left: 4px;">{{ $("json formatter1").first().json.cv_analysis.suggested_improvements[2] }}</li>
+            </ol>
+        </div>
+
+        <div style="background-color: #ffffff; border: 1px solid #cbd5e1; border-radius: 12px; padding: 24px; margin-bottom: 12px;">
+            <h2 style="font-size: 17px; font-weight: 700; color: #0f172a; margin-top: 0; margin-bottom: 4px; padding-left: 10px; border-left: 4px solid #1e3a8a; text-transform: uppercase; letter-spacing: 1.2px;">Tailored Job Matches</h2>
+            <p style="margin: 0 0 20px 0; font-size: 11px; color: #475569; padding-left: 14px;">Ranked dynamically by index compatibility maps and core engineering profiles.</p>
+
+            {{
+ $("json formatter2").first().json.recommended_jobs.slice(0, 10).map((job, index, array) => `
+                <div style="border-bottom: ${index === array.length - 1 ? 'none' : '1px solid #cbd5e1'}; padding-bottom: ${index === array.length - 1 ? '0' : '20px'}; margin-bottom: ${index === array.length - 1 ? '0' : '20px'};">
+                    <h3 style="font-size: 14px; font-weight: 700; color: #1e3a8a; margin: 0 0 8px 0;">${index + 1}. ${job.job_title || 'Not Specified'}</h3>
+                    <div style="font-size: 12px; color: #334155; line-height: 1.5; font-weight: 500; background-color: #f8fafc; border: 1px solid #cbd5e1; padding: 14px; border-radius: 8px;">
+                        <div style="margin-bottom: 4px;"><strong style="color: #0f172a;">Company:</strong> ${job.company || 'Enterprise Partner'}</div>
+                        <div style="margin-bottom: 4px;"><strong style="color: #0f172a;">Location:</strong> ${job.location || 'Remote'}</div>
+                        <div style="margin-bottom: 14px;"><strong style="color: #0f172a;">Reason:</strong> ${job.reason || 'Profile tracks matching technical architectural prerequisites.'}</div>
+                        <a href="${job.job_apply_link || '#'}" target="_blank" style="display: inline-block; background-color: #2563eb; color: #ffffff; text-decoration: none; padding: 8px 18px; border-radius: 6px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">Apply for this Role &rarr;</a>
+                    </div>
+                </div>
+            `).join('')
+            }}
+        </div>
+    </div>
+
+    <div style="margin-top:40px; text-align:center; padding-top:24px; border-top:1px solid #cbd5e1;">
+        <div style="font-size:12px; letter-spacing:2px; color:#64748b; text-transform:uppercase; font-family: Arial, sans-serif;">
+            Powered by
+        </div>
+        <div style="font-family:'Playfair Display', serif; font-size:32px; font-style:italic; color:#1e3a8a; margin-top:8px;">
+            HireSense
+        </div>
+        <div style="margin-top:14px; color:#475569; font-size:13px; max-width:500px; margin-left:auto; margin-right:auto; font-family: Arial, sans-serif;">
+            Empowering professionals with intelligent analysis.
+        </div>
+    </div>
+</div>

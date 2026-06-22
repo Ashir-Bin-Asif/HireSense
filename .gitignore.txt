@@ -1,0 +1,11 @@
+# API Keys, Credentials, and Environment Variables
+.env
+*.env
+secrets.txt
+config.json
+
+# Editor and System files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
